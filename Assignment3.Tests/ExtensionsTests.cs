@@ -26,5 +26,14 @@ namespace BDSA2020.Assignment02.Tests
 
             Assert.False(res);
         }
+
+        [Theory]
+        [InlineData("This string contains 8 words, and one number : as7dx abcd-dxcd)", 8)]
+        public void WordCount(string input, int expected)
+        {
+            var res = input.WordCount();
+
+            Assert.Equal(expected, res);
+        }
     }
 }
