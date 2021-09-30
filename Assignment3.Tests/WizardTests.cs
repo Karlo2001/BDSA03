@@ -17,7 +17,7 @@ namespace BDSA2020.Assignment03.Tests
         [InlineData("Sauron", "The Fellowship of the Ring", 1954, "J.R.R. Tolkien")]
         [InlineData("Gandalf", "Lord of the Rings",1955,"J.R.R. Tolkien")]
         [InlineData("Dumbledore", "Harry Potter", 1997, "J.K. Rowling")]
-        [InlineData("Darth Maul", "Star Wars", 1977, "George Lucas")]
+        [InlineData("Darth Maul", "Star Wars", 1978, "George Lucas")]
         [InlineData("Hermione Granger", "Harry Potter", 1997, "J.K. Rowling")]
         [InlineData("Ron Weasley", "Harry Potter", 1997, "J.K. Rowling")]
         [InlineData("Harry Potter", "Harry Potter", 1997, "J.K. Rowling")]
