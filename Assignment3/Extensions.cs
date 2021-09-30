@@ -47,7 +47,7 @@ namespace BDSA2020.Assignment03
             int? year = null;
             foreach (var wiz in input)
             {
-                if (wiz.Name.Contains("Darth"))
+                if ((wiz.Name.Contains("Darth") && wiz.Year < year) || year == null)
                 {
                     year = wiz.Year;
                 }
@@ -55,18 +55,68 @@ namespace BDSA2020.Assignment03
             return year;
         }
 
-        public static List<(string, int?)> UniqueWizardList(this IReadOnlyCollection<Wizard> input)
+        public static List<(string Name, int? Year)> UniqueWizardList(this IReadOnlyCollection<Wizard> input)
         {
             List<(string Name, int? Year)> resList = new List<(string, int?)>();
             foreach (var wiz in input)
             {
-                if (resList.Contains((wiz.Name, wiz.Year)))
+                if (resList.Contains((wiz.Name, wiz.Year)) || wiz.Medium != "Harry Potter")
                 {
                     continue;
                 }
                 resList.Add((wiz.Name, wiz.Year));
             }
             return resList;
+        }
+
+        public static List<string> GroupedAndSortedWizards(this IReadOnlyCollection<Wizard> input)
+        {
+            List<string> wizNameList = new List<string>();
+            List<string> wizCreatorList = new List<string>();
+            foreach (var wiz in input)
+            {
+                bool added = false;
+                var index = 0;
+                if (!wizCreatorList.Contains(wiz.Creator))
+                {
+                    wizNameList.Add(wiz.Name);
+                    wizCreatorList.Add(wiz.Creator);
+                    added = true;
+                    index = wizNameList.Count - 1;
+                } else {
+                    index = wizNameList.Count;
+                }
+                
+                while(index - 1 >= 0)
+                {
+                    var prevIndex = index - 1;
+
+                    if (wizCreatorList[prevIndex] == wiz.Creator)
+                    {
+                        if (string.Compare(wizNameList[prevIndex], wiz.Name) == 1)
+                        {
+                            wizNameList[prevIndex] = wiz.Name;
+                        }
+                        break;
+                    }
+                    if (added)
+                    {
+                        if (string.Compare(wizCreatorList[prevIndex], wizCreatorList[index]) == -1)
+                        {
+                            var temp = wizCreatorList[prevIndex];
+                            var temp2 = wizNameList[prevIndex];
+                            wizCreatorList[prevIndex] = wizCreatorList[index];
+                            wizNameList[prevIndex] = wizNameList[index];
+                            wizCreatorList[index] = temp;
+                            wizNameList[index] = temp2;
+                        } else {
+                            break;
+                        }
+                    }
+                    index--;
+                }
+            }
+            return wizNameList;
         }
     }
 }
