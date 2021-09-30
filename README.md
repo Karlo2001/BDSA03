@@ -108,7 +108,7 @@ Research what a Kanban board is.  Possibly starting from [here](https://www.atla
 
 ### Exercise 2
 
-As a design activity (i.e., before writing the code): draw a class diagram representing your design of the entities for the C# part.  The purpose of the diagram should be to `sketch` the main relationships between the entities and their multiplicity.  To challenge yourselves, consider that often teams use the boards to also highlight task allocation (i.e., who is responsible for/will complete/has taken a card) and that nowadays pair programming or other group practices are used to implement code.  How would you model this feature?
+As a design activity (i.e., before writing the code): draw a class diagram of the objects representing your analysis of the application domain related to Exercise 1.  The purpose of the diagram should be to `sketch` the main relationships between the entities and their multiplicity.  To challenge yourselves, consider that often teams use the boards to also highlight task allocation (i.e., who is responsible for/will complete/has taken a card) and that nowadays pair programming or other group practices are used to implement code.  How would you model this feature?
 
 
 ### Exercise 3
